@@ -1,0 +1,5 @@
+/* App.css can be kept empty or used for app-specific layout */
+.main-container {
+  min-height: 80vh;
+  padding-bottom: 2rem;
+}
