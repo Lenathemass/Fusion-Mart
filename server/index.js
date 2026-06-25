@@ -12,11 +12,14 @@ dotenv.config()
 
 const app=express()
 
-const PORT=process.env.PORT || 5000;
+const PORT=process.env.PORT || 4000;
 connectDB()
 
 app.use(express.json())
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173', credentials: true }))
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://fusion-mart-omega.vercel.app'],
+  credentials: true
+}))
 
 app.use("/api/auth", authRoutes)
 app.use("/api/products", productRoutes)
