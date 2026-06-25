@@ -13,8 +13,8 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const url = keyword
-          ? `http://localhost:4000/api/products?keyword=${keyword}`
-          : 'http://localhost:4000/api/products';
+          ? `${import.meta.env.VITE_BACKEND_URL}/api/products?keyword=${keyword}`
+          : `${import.meta.env.VITE_BACKEND_URL}/api/products`;
         const response = await fetch(url);
         const data = await response.json();
         setProducts(data.products);

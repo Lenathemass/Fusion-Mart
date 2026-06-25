@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/products');
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products`);
         const data = await response.json();
         // Show up to 8 products so the belt and shoe appear
         setProducts(data.products.slice(0, 8));
