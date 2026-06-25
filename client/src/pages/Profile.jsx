@@ -4,6 +4,8 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Profile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -28,7 +30,7 @@ const Profile = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/profile`, {
+      const response = await fetch(`${API}/users/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

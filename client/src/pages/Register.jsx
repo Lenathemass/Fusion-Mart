@@ -4,6 +4,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -30,7 +32,7 @@ const Register = () => {
     }
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/register`, {
+      const response = await fetch(`${API}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,13 +3,15 @@ import { Container, Row, Col } from 'react-bootstrap';
 import HeroBanner from '../components/HeroBanner';
 import ProductCard from '../components/ProductCard';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products`);
+        const response = await fetch(`${API}/products`);
         const data = await response.json();
         // Show up to 8 products so the belt and shoe appear
         setProducts(data.products.slice(0, 8));

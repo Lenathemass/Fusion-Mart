@@ -3,6 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 
+const API = import.meta.env.VITE_API_URL;
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const location = useLocation();
@@ -13,8 +15,8 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const url = keyword
-          ? `${import.meta.env.VITE_BACKEND_URL}/api/products?keyword=${keyword}`
-          : `${import.meta.env.VITE_BACKEND_URL}/api/products`;
+          ? `${API}/products?keyword=${keyword}`
+          : `${API}/products`;
         const response = await fetch(url);
         const data = await response.json();
         setProducts(data.products);

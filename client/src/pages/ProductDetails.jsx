@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { toast } from 'react-toastify';
 
+const API = import.meta.env.VITE_API_URL;
+
 const StarRating = ({ rating }) => {
   const full = Math.floor(rating);
   const half = rating % 1 >= 0.5;
@@ -39,7 +41,7 @@ const ProductDetails = () => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`);
+        const response = await fetch(`${API}/products/${id}`);
         const data = await response.json();
         setProduct(data);
       } catch (error) {

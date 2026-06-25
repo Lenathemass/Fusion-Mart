@@ -5,6 +5,8 @@ import { CartContext } from '../context/CartContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Checkout = () => {
   const { user } = useContext(AuthContext);
   const { cartItems, clearCart } = useContext(CartContext);
@@ -34,7 +36,7 @@ const Checkout = () => {
 
   const placeOrderHandler = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/orders`, {
+      const response = await fetch(`${API}/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
